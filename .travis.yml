@@ -2,6 +2,11 @@
 
 language: c
 
+cache:
+- ccache
+
+sudo: required
+
 env:
 - BUILD_TYPE=default
 - BUILD_TYPE=qt-android
