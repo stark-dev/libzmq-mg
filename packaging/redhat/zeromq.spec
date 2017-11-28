@@ -131,7 +131,8 @@ rm %{buildroot}%{_libdir}/libzmq.la
 
 %files
 %exclude %{_bindir}/curve_keygen
-%doc AUTHORS ChangeLog COPYING COPYING.LESSER NEWS
+%doc AUTHORS COPYING COPYING.LESSER NEWS
+#%doc ChangeLog
 
 %files devel
 %{_libdir}/libzmq.so
