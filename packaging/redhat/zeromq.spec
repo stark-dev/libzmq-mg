@@ -143,4 +143,7 @@ rm %{buildroot}%{_libdir}/libzmq.la
 # % {_mandir}/man7/zmq*.7*
 %{_mandir}/man*/*.?.gz
 
+%files debug
+%{_libdir}/debug/
+
 %changelog
