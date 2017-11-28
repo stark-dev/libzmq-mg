@@ -159,9 +159,4 @@ rm %{buildroot}%{_libdir}/libzmq.la
 # % {_mandir}/man7/zmq*.7*
 %{_mandir}/man*/*.?.gz
 
-%if 0%{?suse_version} > 0
-%files debug
-/usr/lib*/debug/
-%endif
-
 %changelog
