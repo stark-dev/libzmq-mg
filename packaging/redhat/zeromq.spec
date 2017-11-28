@@ -87,6 +87,18 @@ The %{name}-devel package contains libraries and header files for
 developing applications that use %{name} 3.x.
 
 
+%if 0%{?suse_version} > 0
+%package debug
+Summary:        Debug symbols for %{name}
+Group:          Development/Libraries
+Requires:       %{lib_name} = %{version}-%{release}
+Conflicts:      zeromq-devel
+
+
+%description debug
+The %{name}-debug package contains debug symbols for %{name} binaries and libs.
+%endif
+
 %prep
 %setup -q -n %{name}-%{version}/
 
