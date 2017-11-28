@@ -30,9 +30,6 @@ URL:            http://www.zeromq.org
 # git clone git:http://github.com/zeromq/libzmq.git && cd limzmq
 # git archive --format=tar.gz --prefix=zeromq-3.2.0/ 1ef63bc2adc3d50 > zeromq-3.2.0.tar.gz
 #Source0:        zeromq-%%{version}.tar.gz
-# needed BR for checkout
-#BuildRequires:  autoconf
-#BuildRequires:  libtool
 #####
 # rc's
 Source0:        %{name}-%{version}.tar.gz
@@ -41,6 +38,14 @@ BuildRequires:  glib2-devel
 BuildRequires:  libuuid-devel
 BuildRequires:  gcc-c++
 BuildRequires:  libsodium-devel
+BuildRequires:  pkg-config
+BuildRequires:  libtool
+BuildRequires:  autoconf
+BuildRequires:  automake
+# documentation
+BuildRequires:  asciidoc
+BuildRequires:  xmlto
+BuildRequires:  xz
 #TODO: add openpgm-devel to obs.roz.lab.etn.com
 # % if % {with pgm}
 #BuildRequires:  openpgm-devel
@@ -83,11 +88,11 @@ developing applications that use %{name} 3.x.
 
 
 %prep
-%setup -q -n zeromq-4.2.0/
+%setup -q -n %{name}-%{version}/
 
 # remove all files in foreign except Makefiles
 rm -vf $(find foreign -type f | grep -v Makefile)
-
+./autogen.sh
 # Don't turn warnings into errors
 sed -i "s/libzmq_werror=\"yes\"/libzmq_werror=\"no\"/g" \
     configure
