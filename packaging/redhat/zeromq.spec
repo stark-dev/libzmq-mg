@@ -141,6 +141,6 @@ rm %{buildroot}%{_libdir}/libzmq.la
 #TODO: add asciidoc if you want to have man pages
 # % {_mandir}/man3/zmq*.3*
 # % {_mandir}/man7/zmq*.7*
-
+%{_mandir}/man*/*.?.gz
 
 %changelog
