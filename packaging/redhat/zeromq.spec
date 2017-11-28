@@ -1,6 +1,18 @@
 %define lib_name libzmq4
 %bcond_without pgm
 
+# To build with draft APIs, use "--with drafts" in rpmbuild for local builds or add
+#   Macros:
+#   %_with_drafts 1
+# at the BOTTOM of the OBS prjconf
+%bcond_with drafts
+%if %{with drafts}
+%define DRAFTS yes
+%else
+%define DRAFTS no
+%endif
+%define SYSTEMD_UNIT_DIR %(pkg-config --variable=systemdsystemunitdir systemd)
+
 Name:           zeromq
 Version:        4.2.0+20150120be23e699c9
 Release:        1%{?dist}
@@ -23,7 +35,7 @@ URL:            http://www.zeromq.org
 #BuildRequires:  libtool
 #####
 # rc's
-Source0:        zeromq-4.2.0-20150120be23e699c9.tar.gz
+Source0:        %{name}-%{version}.tar.gz
 #####
 BuildRequires:  glib2-devel
 BuildRequires:  libuuid-devel
