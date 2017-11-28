@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "devel-image && x86_64" }
+    agent { label "devel-image-ipm_1.3 && x86_64" }
     parameters {
         // Use DEFAULT_DEPLOY_BRANCH_PATTERN and DEFAULT_DEPLOY_JOB_NAME if
         // defined in this jenkins setup -- in Jenkins Management Web-GUI
@@ -35,15 +35,15 @@ pipeline {
             description: 'Attempt a build with docs in this run? (Note: corresponding tools are required in the build environment)',
             name: 'DO_BUILD_DOCS')
         booleanParam (
-            defaultValue: false,
+            defaultValue: true,
             description: 'Attempt "make check" in this run?',
             name: 'DO_TEST_CHECK')
         booleanParam (
-            defaultValue: false,
+            defaultValue: true,
             description: 'Attempt "make memcheck" in this run?',
             name: 'DO_TEST_MEMCHECK')
         booleanParam (
-            defaultValue: false,
+            defaultValue: true,
             description: 'Attempt "make distcheck" in this run?',
             name: 'DO_TEST_DISTCHECK')
         booleanParam (
@@ -76,9 +76,6 @@ pipeline {
         stage ('cppcheck') {
                     when { expression { return ( params.DO_CPPCHECK ) } }
                     steps {
-                        dir("tmp") {
-                            deleteDir()
-                        }
                         sh 'cppcheck --std=c++11 --enable=all --inconclusive --xml --xml-version=2 . 2>cppcheck.xml'
                         archiveArtifacts artifacts: '**/cppcheck.xml'
                         sh 'rm -f cppcheck.xml'
