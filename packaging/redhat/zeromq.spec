@@ -95,8 +95,7 @@ developing applications that use %{name} 3.x.
 Summary:        Debug symbols for %{name}
 Group:          Development/Libraries
 Requires:       %{lib_name} = %{version}-%{release}
-Provides:       zeromq-debug = %{version}
-Provides:       zeromq4-debug = %{version}
+Conflicts:      zeromq-devel
 
 
 %description debug
