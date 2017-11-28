@@ -4,6 +4,9 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+# This old version is buggy, more in tests themselves (fixed ports etc.)
+DO_TEST=no
+
 ifeq ($(DEB_BUILD_ARCH_OS), kfreebsd)
 	DO_TEST = no
 endif
