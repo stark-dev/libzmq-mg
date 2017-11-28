@@ -1,4 +1,4 @@
-Source: zeromq4
+Source: zeromq
 Section: libs
 Priority: optional
 Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
