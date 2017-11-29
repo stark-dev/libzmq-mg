@@ -81,8 +81,7 @@ This package holds the shared library part of the ZeroMQ package.
 Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{lib_name} = %{version}-%{release}
-Provides:       zeromq-devel = %{version}
-Provides:       zeromq4-devel = %{version}
+###onflicts:      zeromq-devel
 
 
 %description devel
@@ -95,7 +94,6 @@ developing applications that use %{name} 3.x.
 Summary:        Debug symbols for %{name}
 Group:          Development/Libraries
 Requires:       %{lib_name} = %{version}-%{release}
-Conflicts:      zeromq-devel
 
 
 %description debug
