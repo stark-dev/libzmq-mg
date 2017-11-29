@@ -64,8 +64,8 @@ This package contains the ZeroMQ shared library for versions 3.x.
 
 %package -n %{lib_name}
 Summary:        Shared Library for ZeroMQ
-Provides:       zeromq = %{version}
-Provides:       zeromq4 = %{version}
+Provides:       zeromq
+Provides:       zeromq4
 
 %description -n %{lib_name}
 The 0MQ lightweight messaging kernel is a library which extends the
@@ -81,7 +81,8 @@ This package holds the shared library part of the ZeroMQ package.
 Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{lib_name} = %{version}-%{release}
-###onflicts:      zeromq-devel
+Provides:       zeromq-devel
+Provides:       zeromq4-devel
 
 
 %description devel
@@ -94,6 +95,8 @@ developing applications that use %{name} 3.x.
 Summary:        Debug symbols for %{name}
 Group:          Development/Libraries
 Requires:       %{lib_name} = %{version}-%{release}
+Provides:       zeromq-debug
+Provides:       zeromq4-debug
 
 
 %description debug
