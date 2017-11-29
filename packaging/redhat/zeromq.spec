@@ -157,7 +157,7 @@ rm %{buildroot}%{_libdir}/libzmq.la
 
 %if 0%{?suse_version} > 0
 %files debug
-%{_libdir}/debug/
+/usr/lib*/debug/
 %endif
 
 %changelog
