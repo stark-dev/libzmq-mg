@@ -24,13 +24,13 @@ Description: lightweight messaging kernel (shared library)
  .
  This package contains the libzmq shared library.
 
-Package: libzmq4-dev
-Provides: libzmq3-dev
+Package: libzmq3-dev
 Architecture: any
 Section: libdevel
 Depends: libzmq4 (= ${binary:Version}), ${misc:Depends}
-Conflicts: libzmq-dev, libzmq3-dev
-Replaces: libzmq3-dev
+Conflicts: libzmq-dev, libzmq4-dev
+Replaces: libzmq4-dev
+Provides: libzmq4-dev
 Multi-Arch: same
 Description: lightweight messaging kernel (development files)
  ØMQ is a library which extends the standard socket interfaces with features
